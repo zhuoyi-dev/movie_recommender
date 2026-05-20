@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>推荐结果</title>
+<style>
+body{font-family:Arial;background:#f2f2f2}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+    padding:30px;
+}
+.card{
+    background:white;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;">为用户 {{user_id}} 推荐的电影</h2>
+
+<div class="grid">
+{% for m in movies %}
+    <div class="card">
+        <img src="{{m.poster}}">
+        <h4>{{m.title}}</h4>
+        <p>评分预测：{{m.score}}</p>
+    </div>
+{% endfor %}
+</div>
+
+</body>
+</html>
